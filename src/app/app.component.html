@@ -1,0 +1,352 @@
+<!-- typography -->
+<div class="mat-display-4">Display heading 4</div>
+<div class="mat-display-3">Display heading 3</div>
+<div class="mat-display-2">Display heading 2</div>
+<div class="mat-display-1">Display heading 1</div>
+
+<div class="mat-headline">Heading in h1</div>
+<div class="mat-title">Heading in h2</div>
+<div class="mat-subheading-2">Subheading in h3</div>
+<div class="mat-subheading-1">Subheading in h4</div>
+
+<div class="mat-body-1">this is body text</div>
+<div class="mat-body-2">this is bold body text</div>
+<div class="mat-caption">this is caption box</div>
+
+<div class="mat-typography">
+  <h1>Heading 1</h1>
+  <h2>Heading 2</h2>
+  <h3>Heading 3</h3>
+  <h4>Heading 4</h4>
+  <h5>Heading 5</h5>
+  <h6>Heading 6</h6>
+</div>
+
+<!-- button -->
+
+<div>
+  <button mat-button>Click Me!</button>
+  <button mat-raised-button>Click Me!</button>
+  <button mat-flat-button>Click Me!</button>
+  <button mat-stroked-button>Click Me!</button>
+</div>
+
+<div>
+  <button mat-icon-button>Icon</button>
+  <button mat-fab>fab</button>
+  <button mat-mini-fab>MiniFab</button>
+</div>
+
+<div>
+  <button color="primary" mat-button>Primary</button>
+  <button color="accent" mat-button>Accent</button>
+  <button color="warn" disableRipple mat-button>Warn</button>
+  <button color="primary" mat-raised-button>Click Me!</button>
+  <button color="accent" mat-raised-button>Click Me!</button>
+  <button color="warn" mat-raised-button>Click Me!</button>
+</div>
+
+<!-- Button Toggle -->
+
+<div>
+  <mat-button-toggle #toggleBtn checked disableRippe disabled>Toggle</mat-button-toggle>
+  {{toggleBtn.checked}}
+</div>
+<div>
+  <mat-button-toggle-group #toggleGroup="matButtonToggleGroup" multiple>
+    <mat-button-toggle value="Angular">Angular</mat-button-toggle>
+    <mat-button-toggle value="React">React</mat-button-toggle>
+    <mat-button-toggle value="Vue">Vue</mat-button-toggle>
+  </mat-button-toggle-group>
+  {{toggleGroup.value}}
+</div>
+
+<!-- Icons -->
+
+<div>
+  <mat-icon color="primary">grade</mat-icon>
+</div>
+
+<!-- Badge -->
+
+<div>
+  <span [matBadge]="notification" [matBadgeHidden]="notification === 0">Notification</span>
+</div>
+<div>
+  <span matBadge="5">Notification</span>
+</div>
+<div>
+  <span matBadge="5" matBadgePosition="below after">Notification</span>
+</div>
+<div>
+  <span matBadge="5" matBadgePosition="below before">Notification</span>
+</div>
+<div>
+  <span matBadge="5" matBadgePosition="above after">Notification</span>
+</div>
+<div>
+  <span matBadge="5" matBadgeSize="small">Notification</span>
+</div>
+<div>
+  <span matBadge="5" matBadgeSize="medium">Notification</span>
+</div>
+<div>
+  <span matBadge="5" matBadgeSize="large">Notification</span>
+</div>
+<div>
+  <span matBadge="5" matBadgeColor="primary">Notification</span>
+</div>
+<div>
+  <span matBadge="5" matBadgeColor="accent">Notification</span>
+</div>
+<div>
+  <span matBadge="5" matBadgeColor="warn">Notification</span>
+</div>
+<div>
+  <span matBadge="5" matBadgeColor="primary" matBadgeOverlap="false">Notification</span>
+</div>
+
+<!-- Mat Progress Spinner -->
+<div>
+  <mat-progress-spinner value="40"></mat-progress-spinner>
+  <mat-spinner *ngIf="showSpinner"></mat-spinner>
+  <button (click)="loadData()" mat-raised-button>Load Data</button>
+</div>
+
+<!-- Navigation  -->
+
+<div>
+  <mat-toolbar class="navbar" color="primary">
+    <div>Codevalution</div>
+    <div>
+      <span style="padding-right: 1rem;">Home</span>
+      <span style="padding-right: 1rem;">About</span>
+      <span style="padding-right: 1rem;">Service</span>
+    </div>
+  </mat-toolbar>
+</div>
+
+<!-- Side nav -->
+
+<div>
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav mod="side" [(opened)]="opened">Sidenav</mat-sidenav>
+    <mat-sidenav-content>Main
+      <button (click)="opened=!opened">Toggle opened</button>
+      <button (click)="sidenav.open()">open</button>
+      <button (click)="sidenav.close()">close</button>
+      <button (click)="sidenav.toggle()">Toggle</button>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+
+<!-- menu -->
+<div>
+  <mat-menu #appMenu="matMenu">
+    <button mat-menu-item [matMenuTriggerFor]="subMenu">Frontend</button>
+    <button mat-menu-item>Backend</button>
+  </mat-menu>
+
+  <button mat-flat-button [matMenuTriggerFor]="appMenu">Menu</button>
+
+  <mat-menu #subMenu="matMenu">
+    <button mat-menu-item>Angular</button>
+    <button mat-menu-item>React</button>
+    <button mat-menu-item>Vue</button>
+  </mat-menu>
+</div>
+
+<div>
+  <mat-menu #lazyMenu="matMenu">
+    <ng-template matMenuContent let-name="name">
+      <button mat-menu-item>Settings</button>
+      <button mat-menu-item>Log out {{name}}</button>
+    </ng-template>
+  </mat-menu>
+  <button mat-raised-button [matMenuTriggerData]="{name:'vmn'}" [matMenuTriggerFor]="lazyMenu">vmn</button>
+  <button mat-raised-button [matMenuTriggerData]="{name:'codevolution'}"
+    [matMenuTriggerFor]="lazyMenu">codevolution</button>
+</div>
+
+<!-- list -->
+
+<div>
+  <mat-list dense>
+    <!-- dense use to reduse size -->
+    <mat-list-item>Item 1</mat-list-item>
+    <mat-list-item>Item 2</mat-list-item>
+    <mat-list-item>Item 3</mat-list-item>
+  </mat-list>
+
+  <mat-nav-list>
+    <a mat-list-item href="#">Home</a>
+    <a mat-list-item href="#">About</a>
+    <a mat-list-item href="#">Service</a>
+  </mat-nav-list>
+
+  <mat-list>
+    <mat-list-item>
+      <mat-icon matListIcon>home</mat-icon>
+      <h3 matLine>Heading</h3>
+      <p matLine>line</p>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <mat-icon matListIcon>folder</mat-icon>
+      <h3 matLine>Heading</h3>
+      <p matLine>line</p>
+    </mat-list-item>
+  </mat-list>
+</div>
+
+
+<!-- grid list -->
+
+<div>
+  <mat-grid-list cols="2" rowHeight="100px" gutterSize="10px ">
+    <mat-grid-tile>Title 1</mat-grid-tile>
+    <mat-grid-tile>Title 2</mat-grid-tile>
+    <mat-grid-tile>Title 3</mat-grid-tile>
+    <mat-grid-tile>Title 4</mat-grid-tile>
+  </mat-grid-list>
+</div>
+<br><br><br><br><br><br><br><br><br><br>
+<!-- expansion panel -->
+
+<div>
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>Angular fundamental</mat-panel-title>
+        <mat-panel-description>Total duration :3hr</mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non illo obcaecati porro reprehenderit voluptates
+        unde!
+        Dicta, quidem. Perferendis, reiciendis nesciunt qui deserunt error aperiam numquam. Amet ab voluptatum alias
+        deserunt?</p>
+      <mat-action-row>
+        <button mat-button>Enroll</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>Angular detail</mat-panel-title>
+        <mat-panel-description>Total duration :2hr</mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non illo obcaecati porro reprehenderit voluptates
+        unde!
+        Dicta, quidem. Perferendis, reiciendis nesciunt qui deserunt error aperiam numquam. Amet ab voluptatum alias
+        deserunt?</p>
+      <mat-action-row>
+        <button mat-button>Enroll</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+<!-- card -->
+<div>
+  <mat-card>
+    <mat-card-title>card Title</mat-card-title>
+    <mat-card-content>This is card content</mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-flat-button>Login</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<!-- tab -->
+
+<div>
+  <mat-tab-group #tabRef>
+    <mat-tab label="Angular">Angular content</mat-tab>
+    <mat-tab label="React">React content</mat-tab>
+    <mat-tab label="Vue">Vue content</mat-tab>
+  </mat-tab-group>
+  {{tabRef.selectedIndex}}
+</div>
+
+<!-- stepper -->
+
+<div>
+  <mat-horizontal-stepper>
+    <mat-step label="shipping address">
+      <p>shipping address Details</p>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </mat-step>
+    <mat-step label="Billing Address">
+      <p>Billing Address Details</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </mat-step>
+    <mat-step label="Place order">
+      <p>Place order Details</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>
+
+<!-- input -->
+
+<div>
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput required>
+    <mat-hint align="end">Max 5 Character</mat-hint>
+  </mat-form-field>
+</div>
+
+<!--  -->
+
+<div>
+  <mat-form-field>
+    <mat-label>Topic</mat-label>
+    <mat-select [(value)]="selectedValue" multiple>
+      <mat-option>None</mat-option>
+      <mat-optgroup label="web">
+        <mat-option value="Angular">Angular</mat-option>
+        <mat-option value="React">React</mat-option>
+        <mat-option value="Vue">Vue</mat-option>
+      </mat-optgroup>
+      <mat-optgroup label="Mobile">
+        <mat-option value="ionic">Ionic</mat-option>
+        <mat-option value="reactnative">React Native</mat-option>
+      </mat-optgroup>
+    </mat-select>
+  </mat-form-field>
+  {{selectedValue}}
+</div>
+
+<!-- tooltip -->
+
+<div>
+  <button mat-raised-button matTooltip="Welcome to vmn">
+    Hello
+  </button>
+</div>
+
+<!-- Checkbox & Radio button-->
+
+<div>
+  <mat-checkbox>Subscribe</mat-checkbox>
+</div>
+<div>
+  <mat-radio-group>
+    <mat-radio-button value="Angulat">Angulat</mat-radio-button>
+    <mat-radio-button value="React">React</mat-radio-button>
+    <mat-radio-button value="Vue">Vue</mat-radio-button>
+  </mat-radio-group>
+</div>
+
+<!--  -->
+<cdk-virtual-scroll-viewport itemSize="100" class="container">
+  <div *cdkVirtualFor="let number of numbers" class="number">
+    {{number}}
+  </div>
+</cdk-virtual-scroll-viewport>
